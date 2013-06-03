@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public class Conexao {
     private final String URL = "jdbc:mysql://127.0.0.1:3306/login2";
     private final String USER = "root";
-    private final String PASS = "sbk1986";
+    private final String PASS = "root";
     
     public Connection getConexao() throws ClassNotFoundException {
         //System.out.println("Conectando com o banco de dados...");
