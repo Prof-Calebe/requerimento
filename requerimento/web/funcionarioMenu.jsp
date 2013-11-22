@@ -1,23 +1,12 @@
-<%-- 
-    Document   : index
-    Created on : 30/05/2013, 16:57:27
-    Author     : Carlos
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    
-    
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login</title>
-        
+        <title>JSP Page</title>
     </head>
-    
-    
     <body>
-   
         <center>
             <img src="Imagem/mackenzie1.png"/>
             <br><%--Tag para pular linha --%>
@@ -45,28 +34,15 @@
             &nbsp<%--Tag para dar espaçoes --%>
             &nbsp<%--Tag para dar espaçoes --%>
             &nbsp<%--Tag para dar espaçoes --%>
-            <h1><font color="#8B0000">SISTEMA DE REQUERIMENTO</font></h1>
-            
-            <form action = "LoginServlet" method="POST">
-                <table>
-                    <tr>
-                        <td>T.I.A/D.R.T:</td>
-                        <td><input type="text" name="user"></td>
-                    </tr>
-                    <tr>
-                        <td>Senha:</td>
-                        <td><input type="password" name="pass"></td>
-                    </tr>
-                </table>
-                <br>
-                <input type="submit" name="logar"  value="     Entrar      ">
-                
-                &nbsp<%--Tag para dar espaçoes --%>
-               
-                <input name="" type="reset"  value="   Cancelar    ">
-                </form>      
-            
-        </center>
+            <h1>Requerimentos Funcionário</h1>
+            <br>
+            <br>
+                <img src="Imagem/icon.png" width="35" height="35" />
+                <a href="View/Funcionario/Visualizar/VisualizarRequerimento.jsp"> Visualizar Requerimentos</a>
+            <br>
+            <br>
+                <img src="Imagem/icon.png" width="35" height="35" />
+                <a href="View/Funcionario/Avaliar/AvaliarRequerimento.jsp"> Avaliar Requerimento</a>
+            </center>
     </body>
-     
 </html>

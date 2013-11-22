@@ -1,44 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+     <servlet>
+        <servlet-name>AbonarFaltaServlet</servlet-name>
+        <servlet-class>Controller.AbonarFaltaServlet</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>Controller.LoginServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>loginServlet</servlet-name>
-        <servlet-class>Controller.loginServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>LOGINServlet</servlet-name>
-        <servlet-class>Controller.LOGINServlet</servlet-class>
+        <servlet-name>MudancaTgiServlet</servlet-name>
+        <servlet-class>Controller.MudancaTgiServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ProvaSubServlet</servlet-name>
         <servlet-class>Controller.ProvaSubServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RevNotProServlet</servlet-name>
-        <servlet-class>Controller.RevNotProServlet</servlet-class>
+        <servlet-name>RevisaoProcompServlet</servlet-name>
+        <servlet-class>Controller.RevisaoProcompServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RevisaoProvaServlet</servlet-name>
+        <servlet-class>Controller.RevisaoProvaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AbonarFaltaServlet</servlet-name>
+        <url-pattern>/AbonarFaltaServlet</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>loginServlet</servlet-name>
-        <url-pattern>/loginServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LOGINServlet</servlet-name>
-        <url-pattern>/LOGINServlet</url-pattern>
+        <servlet-name>MudancaTgiServlet</servlet-name>
+        <url-pattern>/MudancaTgiServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ProvaSubServlet</servlet-name>
         <url-pattern>/ProvaSubServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>RevNotProServlet</servlet-name>
-        <url-pattern>/RevNotProServlet</url-pattern>
+        <servlet-name>RevisaoProcompServlet</servlet-name>
+        <url-pattern>/RevisaoProcompServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RevisaoProvaServlet</servlet-name>
+        <url-pattern>/RevisaoProvaServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -1,27 +1,18 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controller;
 
-
-import BancoDeDados.RevisaoTgiBD;
+import BancoDeDados.AbonarFaltaBD;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Carlos
- */
-@WebServlet(name = "MudancaTgiServlet", urlPatterns = {"/MudancaTgiServlet"})
-public class MudancaTgiServlet extends HttpServlet {
+
+public class AbonarFaltaServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -37,19 +28,21 @@ public class MudancaTgiServlet extends HttpServlet {
             throws ServletException, IOException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        //RevisaoTgiBD tgi = new RevisaoTgiBD();
+        //AbonarFaltaBD abonar = new AbonarFaltaBD();
       
-        String nomeOrientador = request.getParameter("nomeOrientador");
+        String nomeDisciplina = request.getParameter("nomeDisciplina");
         String curso = request.getParameter("curso");
-        String grupo = request.getParameter("grupo");
+        String turma = request.getParameter("turma");
         String motivo = request.getParameter("motivo");
         String user = request.getParameter("user");
         
+        
+       out.print(nomeDisciplina+curso+turma+motivo+user);
+        
         try {
             /* TODO output your page here. You may use following sample code. */
-            //tgi.insere(user,nomeOrientador,curso, grupo, motivo);
+            //abonar.insere(user, nomeDisciplina, curso, turma, motivo);
             response.sendRedirect("alunoMenu.jsp?user="+user);
-            
         } finally {            
             out.close();
         }
@@ -71,7 +64,7 @@ public class MudancaTgiServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MudancaTgiServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProvaSubServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -90,7 +83,7 @@ public class MudancaTgiServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MudancaTgiServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProvaSubServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

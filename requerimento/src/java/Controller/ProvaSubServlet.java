@@ -4,7 +4,7 @@
  */
 package Controller;
 
-import BancoDeDados.ProvaBanco;
+import BancoDeDados.ProvaSubBD;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -34,7 +34,7 @@ public class ProvaSubServlet extends HttpServlet {
             throws ServletException, IOException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        ProvaBanco provaRev = new ProvaBanco();
+        //ProvaBanco provaRev = new ProvaBanco();
       
         
         String nomeProfessor = request.getParameter("nomeProfessor");
@@ -45,12 +45,12 @@ public class ProvaSubServlet extends HttpServlet {
         String user = request.getParameter("user");
         
         
-        out.print(nomeProfessor+nomeDisciplina+curso+turma+motivo+user);
+       out.print(nomeProfessor+nomeDisciplina+curso+turma+motivo+user);
         
         try {
             /* TODO output your page here. You may use following sample code. */
-            provaRev.insere(user,nomeProfessor, nomeDisciplina, curso, turma, motivo);
-            response.sendRedirect("requerimento.jsp?user="+user);
+            //provaRev.insere(user,nomeProfessor, nomeDisciplina, curso, turma, motivo);
+            response.sendRedirect("alunoMenu.jsp?user="+user);
         } finally {            
             out.close();
         }
