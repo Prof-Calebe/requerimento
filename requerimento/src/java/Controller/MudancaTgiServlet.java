@@ -43,11 +43,12 @@ public class MudancaTgiServlet extends HttpServlet {
         String curso = request.getParameter("curso");
         String grupo = request.getParameter("grupo");
         String motivo = request.getParameter("motivo");
+        String data = request.getParameter("data");
         String user = request.getParameter("user");
         
         try {
             /* TODO output your page here. You may use following sample code. */
-            //tgi.insere(user,nomeOrientador,curso, grupo, motivo);
+            //tgi.insere(user,nomeOrientador,curso, grupo, motivo, data);
             response.sendRedirect("alunoMenu.jsp?user="+user);
             
         } finally {            

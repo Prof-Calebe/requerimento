@@ -15,9 +15,9 @@ import static org.junit.Assert.*;
  *
  * @author Lucas
  */
-public class LoginBancoTest {
+public class RevisaoProcompBDTest {
     
-    public LoginBancoTest() {
+    public RevisaoProcompBDTest() {
     }
     
     @BeforeClass

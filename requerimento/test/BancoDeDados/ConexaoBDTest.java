@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package BancoDeDados;
 
 import org.junit.After;
@@ -11,13 +8,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Lucas
- */
-public class ProvaBancoTest {
+
+public class ConexaoBDTest {
     
-    public ProvaBancoTest() {
+    public ConexaoBDTest() {
     }
     
     @BeforeClass

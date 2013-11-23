@@ -38,7 +38,7 @@
             <form action = "../../RevisaoProcompServlet" method="POST" onsubmit="feedback()">
                 <%String user = request.getParameter("user");%>
                  <table>
-                    <tr>
+                    
                         <td><input type="hidden" name="user" value="<%=user%>"></td>     
                         <tr>
                         <td>Nome da Professor:</td>
@@ -58,7 +58,11 @@
                         <tr>
                         <td>Motivo do Requerimento:</td>
                         <td><input type="text" name="motivo" SIZE=50 MAXLENGTH=50></td>
-                    </tr>
+                        </tr>
+                        <tr>
+                        <td>Data do procomp:</td>
+                        <td><input type="text" name="motivo" SIZE=50 MAXLENGTH=50></td>
+                        </tr>
                     
                 </table>
                 <br>
@@ -69,7 +73,7 @@
                 &nbsp
                 &nbsp
                 &nbsp
-                <input name="" type="reset"  value="   Cancelar    ">
+                <a href="../../alunoMenu.jsp"><input name="" type="button"  value="   Cancelar    " ></a>
              </form>
         </center>
     </body>

@@ -21,8 +21,8 @@ public class ProvaSubBD {
        provas = new ArrayList<ProvaSub>();
     }  
     
-    public void insere(String TIA, String nomeProfessor, String nomeDisciplina, String curso, String turma, String motivo) {
-    String sql = "INSERT INTO provasub(id_tia,nomeProf, nomeDisciplina, curso, turma, motivo, status, avaliacao) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    public void insere(String TIA, String nomeProfessor, String nomeDisciplina, String curso, String turma, String motivo, String data) {
+    String sql = "INSERT INTO provasub(id_tia,nomeProf, nomeDisciplina, curso, turma, motivo, data, status, avaliacao) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             // prepared statement para inserção
             PreparedStatement stmt = (PreparedStatement) conexao.prepareStatement(sql);    
@@ -33,8 +33,9 @@ public class ProvaSubBD {
             stmt.setString(4,  curso);
             stmt.setString(5, turma);
             stmt.setString(6, motivo);
-            stmt.setString(7, "Nao Visto");
-            stmt.setString(8, "A Verificar");
+            stmt.setString(7, data);
+            stmt.setString(8, "Nao Visto");
+            stmt.setString(9, "A Verificar");
             
             // executa
             stmt.executeUpdate();
@@ -59,6 +60,7 @@ public class ProvaSubBD {
                 provasub.setCurso(rs.getString("curso"));
                 provasub.setTurma(rs.getString("turma"));
                 provasub.setMotivo(rs.getString("motivo"));
+                provasub.setData(rs.getString("data"));
                 provasub.setStatus(rs.getString("status"));
                 provasub.setAvaliacao(rs.getString("avaliacao"));
                 provas.add(provasub);

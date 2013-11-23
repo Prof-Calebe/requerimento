@@ -21,8 +21,8 @@ public class AbonarFaltaBD {
        faltas = new ArrayList<AbonarFalta>();
     }  
     
-    public void insere(String TIA, String nomeDisciplina, String curso, String turma, String motivo) {
-    String sql = "INSERT INTO abonofalta(id_tia, nomeDisciplina, curso, turma, motivo, status, avaliacao) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    public void insere(String TIA, String nomeDisciplina, String curso, String turma, String motivo, String data) {
+    String sql = "INSERT INTO abonofalta(id_tia, nomeDisciplina, curso, turma, motivo, data, status, avaliacao) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             // prepared statement para inserção
             PreparedStatement stmt = (PreparedStatement) conexao.prepareStatement(sql);    
@@ -32,8 +32,9 @@ public class AbonarFaltaBD {
             stmt.setString(3, curso);
             stmt.setString(4, turma);
             stmt.setString(5, motivo);
-            stmt.setString(6, "Nao Visto");
-            stmt.setString(7, "A Verificar");
+            stmt.setString(6, data);
+            stmt.setString(7, "Nao Visto");
+            stmt.setString(8, "A Verificar");
             
             // executa
             stmt.executeUpdate();
@@ -57,6 +58,7 @@ public class AbonarFaltaBD {
                 abonoFalta.setCurso(rs.getString("curso"));
                 abonoFalta.setTurma(rs.getString("turma"));
                 abonoFalta.setMotivo(rs.getString("motivo"));
+                abonoFalta.setData(rs.getString("data"));
                 abonoFalta.setStatus(rs.getString("status"));
                 abonoFalta.setAvaliacao(rs.getString("avaliacao"));
                 faltas.add(abonoFalta);
@@ -69,6 +71,7 @@ public class AbonarFaltaBD {
         }
         return faltas;
     }
+    
     public void altera(String tia) {
         PreparedStatement stmt = null;
         ResultSet res = null;

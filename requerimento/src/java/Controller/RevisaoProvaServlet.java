@@ -44,11 +44,12 @@ public class RevisaoProvaServlet extends HttpServlet {
         String curso = request.getParameter("curso");
         String turma = request.getParameter("turma");
         String motivo = request.getParameter("motivo");
+        String data = request.getParameter("data");
         String user = request.getParameter("user");
         
         try {
             /* TODO output your page here. You may use following sample code. */
-            //revisaoProva.insere(user,nomeProfessor, nomeDisciplina, curso, turma, motivo);
+            //revisaoProva.insere(user,nomeProfessor, nomeDisciplina, curso, turma, motivo, data);
             response.sendRedirect("alunoMenu.jsp?user="+user);
         } finally {            
             out.close();

@@ -1,14 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package model;
 
-/**
- *
- * @author Carlos
- */
-public class RevisaoProva {
+ 
+public class RevisaoProcomp {
     private int id;
     private String id_tia;
     private String nomeProf;
@@ -99,6 +93,4 @@ public class RevisaoProva {
     public void setAvaliacao(String avaliacao) {
         this.avaliacao = avaliacao;
     }
-    
-    
 }

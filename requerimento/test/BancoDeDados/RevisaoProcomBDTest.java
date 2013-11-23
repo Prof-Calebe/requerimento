@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package BancoDeDados;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -15,9 +15,9 @@ import static org.junit.Assert.*;
  *
  * @author Lucas
  */
-public class RevProServletTest {
+public class RevisaoProcomBDTest {
     
-    public RevProServletTest() {
+    public RevisaoProcomBDTest() {
     }
     
     @BeforeClass

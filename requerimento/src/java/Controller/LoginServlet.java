@@ -4,21 +4,22 @@
  */
 package Controller;
 
-import BancoDeDados.RevisaoProcompBD;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import BancoDeDados.LoginBD;
 
 /**
  *
  * @author Carlos
  */
-public class RevisaoProcompServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -31,29 +32,36 @@ public class RevisaoProcompServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        RevisaoProcompBD revisaoProcomp = new RevisaoProcompBD();
-      
-        
-        String nomeProfessor = request.getParameter("nomeProfessor");
-        String nomeDisciplina = request.getParameter("nomeDisciplina");
-        String curso = request.getParameter("curso");
-        String turma = request.getParameter("turma");
-        String motivo = request.getParameter("motivo");
-        String data = request.getParameter("data");
         String user = request.getParameter("user");
         
+        String pass = request.getParameter("pass");
+        LoginBD login = null;
+        login = new LoginBD();
+        
+        //Integer num = Integer.parseInt(user);
+        Integer num;
+        
+        
+        //Teste aluno
+        num = 30000045;
+        
+        //Teste funcionario
+        //num = 10000098;
+        
         try {
-            /* TODO output your page here. You may use following sample code. */
-            //revisaoProcomp.insere(user,nomeProfessor, nomeDisciplina, curso, turma, motivo, data);
-            response.sendRedirect("alunoMenu.jsp?user="+user);
+            //if((user.equals(login.validarUsuario(user))) && (pass.equals(login.validarSenha(pass))))
+                if(num > 30000000 && num < 39999999)
+                   response.sendRedirect("alunoMenu.jsp?user="+user);
+                if(num > 10000000 && num < 19999999 ) 
+                   response.sendRedirect("funcionarioMenu.jsp?user="+user);
         } finally {            
             out.close();
         }
     }
-
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP
@@ -69,8 +77,10 @@ public class RevisaoProcompServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(RevisaoProcompServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -88,8 +98,10 @@ public class RevisaoProcompServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(RevisaoProcompServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

@@ -34,7 +34,7 @@
             <form action = "../../AbonarFaltaServlet" method="POST" onSubmit="feedback()">
                 <%String user = request.getParameter("user");%>
                  <table>
-                    <tr>
+                     
                         <td><input type="hidden" name="user" value="<%=user%>"></td> 
                         <tr>
                         <td>Nome da Disciplina:</td>
@@ -46,11 +46,17 @@
                         </tr>
                         <tr>
                         <td>Turma:</td>
-                        <td><input type="text" name="turma" SIZE=50 MAXLENGTH=50></td></tr>
+                        <td><input type="text" name="turma" SIZE=50 MAXLENGTH=50></td>
+                        </tr>
                         <tr>
                         <td>Motivo do Requerimento:</td>
                         <td><input type="text" name="motivo" SIZE=50 MAXLENGTH=50></td>
-                    </tr>
+                        </tr>
+                        <tr>
+                        <td>Data da falta:</td>
+                        <td><input type="text" name="motivo" SIZE=50 MAXLENGTH=50></td>
+                        </tr>
+                    
                     
                 </table>
                 <br>
@@ -61,7 +67,7 @@
                 &nbsp
                 &nbsp
                 &nbsp
-                <input name="" type="reset"  value="   Cancelar    ">
+                <a href="../../alunoMenu.jsp"><input name="" type="button"  value="   Cancelar    " ></a>
              </form>
         </center>
     </body>

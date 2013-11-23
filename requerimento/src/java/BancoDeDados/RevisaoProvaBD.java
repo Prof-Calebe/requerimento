@@ -24,8 +24,8 @@ public class RevisaoProvaBD {
         listaRevisao = new ArrayList<RevisaoProva>();
     }  
    
-    public void insere(String TIA, String nomeProfessor, String nomeDisciplina, String curso, String turma, String motivo) {
-    String sql = "INSERT INTO revpro(id_tia,nomeProf, nomeDisciplina, curso, turma, motivo, status, avaliacao) VALUES (?, ?, ?, ?, ?, ?,?,?)";
+    public void insere(String TIA, String nomeProfessor, String nomeDisciplina, String curso, String turma, String motivo, String data) {
+    String sql = "INSERT INTO revpro(id_tia,nomeProf, nomeDisciplina, curso, turma, motivo, data, status, avaliacao) VALUES (?, ?, ?, ?, ?, ?,?,?)";
         try {
             // prepared statement para inserção
             PreparedStatement stmt = (PreparedStatement) conexao.prepareStatement(sql);    
@@ -36,8 +36,9 @@ public class RevisaoProvaBD {
             stmt.setString(4,  curso);
             stmt.setString(5, turma);
             stmt.setString(6, motivo);
-            stmt.setString(7, "Nao Visto");
-            stmt.setString(8, "A Verificar");
+            stmt.setString(7, data);
+            stmt.setString(8, "Nao Visto");
+            stmt.setString(9, "A Verificar");
             // executa
             stmt.executeUpdate();
             stmt.close();
@@ -62,6 +63,7 @@ public class RevisaoProvaBD {
                 revisao.setCurso(rs.getString("curso"));
                 revisao.setTurma(rs.getString("turma"));
                 revisao.setMotivo(rs.getString("motivo"));
+                revisao.setData(rs.getString("data"));
                 revisao.setStatus(rs.getString("status"));
                 revisao.setAvaliacao(rs.getString("avaliacao"));
                 listaRevisao.add(revisao);
