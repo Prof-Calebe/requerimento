@@ -37,10 +37,21 @@
             <h1>Requerimentos</h1>
             <br>
             <br>
-            <% 
+            <% /*
+                Testando formulario de avaliacao
+                */
+
+                RevisaoTGI revisaoTGI = new RevisaoTGI();
+                revisaoTGI.setId_tia("3097691");
+                revisaoTGI.setNomeOrientador("Calebe de Paula Bianchini");
+                revisaoTGI.setGrupo("Reconhecimento de Padroes Naturais");
+                revisaoTGI.setMotivo("Orientador esqueceu de atribuir nota");
+                
                //RevisaoTgiBD revisaoprova = new RevisaoTgiBD();
                List<RevisaoTGI> listaRevisoes  = new ArrayList<RevisaoTGI>(); 
                //listaRevisoes = revisaoprova.getLista();
+               
+               listaRevisoes.add(revisaoTGI);
             %>
             <form action = "UpdateRevisaoTgi.jsp" method="POST"> 
         <table border ="1">
@@ -53,7 +64,7 @@
                 </td>
                 
                 <td>
-                    Curso
+                    Grupo
                 </td>
                 
                 <td>
@@ -83,7 +94,11 @@
                     <% out.println(listaRevisoes.get(i).getMotivo()); %>
                 </td>
                 <td>
-                    <input type="text" name="status">
+                     <select>
+                        <option value="dafault"></option>
+                        <option value="aprovado">Aprovado</option>
+                        <option value="reprovado">Reprovado</option>
+                    </select>
                 </td>
                 <td>
                     <input type="text" name="avaliacao">

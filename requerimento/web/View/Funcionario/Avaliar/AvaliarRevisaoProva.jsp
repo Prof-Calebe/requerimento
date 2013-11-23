@@ -33,10 +33,24 @@
             <h1>Requerimentos</h1>
             <br>
             <br>
-            <% 
+            <% /*
+                Testando formulario de avaliacao
+                */
+
+                RevisaoProva revisaoProvaTest = new RevisaoProva();
+                revisaoProvaTest.setId_tia("3097691");
+                revisaoProvaTest.setNomeProf("Calebe de Paula Bianchini");
+                revisaoProvaTest.setNomeDisciplina("Teste de Software");
+                revisaoProvaTest.setCurso("Ciencia da Computacao");
+                revisaoProvaTest.setTurma("7N");
+                revisaoProvaTest.setMotivo("Nao concorda com correcao feita pelo professor");
+                revisaoProvaTest.setData("14/06/2006");
+                
                //RevisaoProvaBD revisaoprova = new RevisaoProvaBD();
-               List<RevisaoProva> listaRevisoes  = new ArrayList<RevisaoProva>(); 
+               List<RevisaoProva> listaRevisao  = new ArrayList<RevisaoProva>(); 
                //listaRevisoes = revisaoprova.getLista();
+               
+               listaRevisao.add(revisaoProvaTest);
             %>
             <form action = "UpdateRevisaoProva.jsp" method="POST"> 
         <table border ="1">
@@ -66,28 +80,35 @@
                     Avaliacao
                 </td>
             </tr>
-            <% for(int i = 0; i< listaRevisoes.size();i++){%>
+            <% for(int i = 0; i< listaRevisao.size();i++){%>
             <tr> 
                 <td>
-                    <% out.println(listaRevisoes.get(i).getId_tia()); %>
+                    <% out.println(listaRevisao.get(i).getId_tia()); %>
                 </td>
                 <td>
-                    <% out.println(listaRevisoes.get(i).getNomeProf()); %>
+                    <% out.println(listaRevisao.get(i).getNomeProf()); %>
                 </td>
                 <td>
-                    <% out.println(listaRevisoes.get(i).getNomeDisciplina()); %>
+                    <% out.println(listaRevisao.get(i).getNomeDisciplina()); %>
                 </td>
                 <td>
-                    <% out.println(listaRevisoes.get(i).getCurso()); %>
+                    <% out.println(listaRevisao.get(i).getCurso()); %>
                 </td>
                 <td>
-                    <% out.println(listaRevisoes.get(i).getTurma()); %>
+                    <% out.println(listaRevisao.get(i).getTurma()); %>
                 </td>
                 <td>
-                    <% out.println(listaRevisoes.get(i).getMotivo()); %>
+                    <% out.println(listaRevisao.get(i).getMotivo()); %>
                 </td>
-                 <td>
-                    <input type="text" name="status">
+                <td>
+                    <% out.println(listaRevisao.get(i).getData()); %>
+                </td>
+                <td>
+                    <select>
+                        <option value="dafault"></option>
+                        <option value="aprovado">Aprovado</option>
+                        <option value="reprovado">Reprovado</option>
+                    </select>
                 </td>
                 <td>
                     <input type="text" name="avaliacao">

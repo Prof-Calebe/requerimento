@@ -39,9 +39,25 @@
             <br>
             <br>
             <% 
+                /*
+                Testando formulario de avaliacao
+                */
+
+                RevisaoProcomp revisaoProcompTest = new RevisaoProcomp();
+                revisaoProcompTest.setId_tia("3097691");
+                revisaoProcompTest.setNomeProf("Calebe de Paula Bianchini");
+                revisaoProcompTest.setNomeDisciplina("Teste de Software");
+                revisaoProcompTest.setCurso("Ciencia da Computacao");
+                revisaoProcompTest.setTurma("7N");
+                revisaoProcompTest.setMotivo("Nota da prova nao confere com o gabarito");
+                revisaoProcompTest.setData("14/06/2006");
+                
+
                //RevisaoProcompBD revisaoProcomp = new RevisaoProcompBD();
                List<RevisaoProcomp> listaRevisao  = new ArrayList<RevisaoProcomp>(); 
                //listaRevisao = revisaoProcomp.getLista();
+               
+               listaRevisao.add(revisaoProcompTest);
             %>
             <form action = "UpdateRevisaoProcomp.jsp" method="POST"> 
         <table border ="1">
@@ -63,6 +79,9 @@
                 </td>
                 <td>
                     Motivo
+                </td>
+                <td>
+                    Data
                 </td>
                 <td>
                     Status
@@ -92,7 +111,14 @@
                     <% out.println(listaRevisao.get(i).getMotivo()); %>
                 </td>
                 <td>
-                    <input type="text" name="status">
+                    <% out.println(listaRevisao.get(i).getData()); %>
+                </td>
+                <td>
+                    <select>
+                        <option value="dafault"></option>
+                        <option value="aprovado">Aprovado</option>
+                        <option value="reprovado">Reprovado</option>
+                    </select>
                 </td>
                 <td>
                     <input type="text" name="avaliacao">

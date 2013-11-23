@@ -38,9 +38,25 @@
             <br>
             <br>
             
-            <% //ProvaSubBD provaSub = new ProvaSubBD();
+            <%  /*
+                Testando formulario de avaliacao
+                */
+
+                ProvaSub provaSubTest = new ProvaSub();
+                provaSubTest.setId_tia("3097691");
+                provaSubTest.setNomeProf("Calebe de Paula Bianchini");
+                provaSubTest.setNomeDisciplina("Teste de Software");
+                provaSubTest.setCurso("Ciencia da Computacao");
+                provaSubTest.setTurma("7N");
+                provaSubTest.setMotivo("Razoes medicas");
+                provaSubTest.setData("14/06/2006");
+                
+                /******************************************************************/
+                //ProvaSubBD provaSub = new ProvaSubBD();
                List<ProvaSub> listaProvas  = new ArrayList<ProvaSub>(); 
                //listaProvas = provaSub.getLista();
+               
+               listaProvas.add(provaSubTest);
             %>
             <form action = "UpdateProvaSub.jsp" method="POST"> 
                 
@@ -63,6 +79,9 @@
                 </td>
                 <td>
                     Motivo
+                </td>
+                <td>
+                    Data
                 </td>
                 <td>
                     Status
@@ -91,8 +110,15 @@
                 <td>
                     <% out.println(listaProvas.get(i).getMotivo()); %>
                 </td>
+                 <td>
+                    <% out.println(listaProvas.get(i).getData()); %>
+                </td>
                 <td>
-                    <input type="text" name="status">
+                    <select>
+                        <option value="dafault"></option>
+                        <option value="aprovado">Aprovado</option>
+                        <option value="reprovado">Reprovado</option>
+                    </select>
                 </td>
                 <td>
                     <input type="text" name="avaliacao">
