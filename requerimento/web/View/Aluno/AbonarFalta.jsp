@@ -4,9 +4,34 @@
 <html>
     <head>
         <script>
+            
             function feedback() {
-                alert("O requerimento de abono de falta foi enviado para aprovação com sucesso!")
+                alert("O requerimento de abono de falta foi enviado para aprovação!");
             }
+            
+            function validateForm() {
+                
+                var nomeDisciplina = document.forms["abonarFalta"]["nomeDisciplina"].value;
+                var curso = document.forms["abonarFalta"]["curso"].value;
+                var turma = document.forms["abonarFalta"]["turma"].value;
+                var motivo = document.forms["abonarFalta"]["motivo"].value;
+                var data = document.forms["abonarFalta"]["data"].value;
+                
+                if (
+                    nomeDisciplina == null || nomeDisciplina == "" || 
+                    curso == null || curso == "" || 
+                    turma == null || turma == "" || 
+                    motivo == null || motivo == "" ||
+                    data == null || data == ""
+                ) {
+                    alert("Nao e possivel inserir valores em branco, favor preencher os campos em branco.");
+                    return false;
+                
+                } else {
+                    feedback();
+                }
+            }
+
         </script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Abono de Faltas</title>
@@ -30,8 +55,9 @@
             &nbsp<%--Tag para dar espaçoes --%>
             &nbsp<%--Tag para dar espaçoes --%>
             &nbsp<%--Tag para dar espaçoes --%>
+            
             <h1>Abono de faltas</h1>
-            <form action = "../../AbonarFaltaServlet" method="POST" onSubmit="feedback()">
+            <form  name="abonarFalta" action = "../../AbonarFaltaServlet" method="POST" onSubmit="return validateForm()">
                 <%String user = request.getParameter("user");%>
                  <table>
                      
@@ -54,7 +80,7 @@
                         </tr>
                         <tr>
                         <td>Data da falta:</td>
-                        <td><input type="text" name="motivo" SIZE=50 MAXLENGTH=50></td>
+                        <td><input type="text" name="data" SIZE=50 MAXLENGTH=50></td>
                         </tr>
                     
                     

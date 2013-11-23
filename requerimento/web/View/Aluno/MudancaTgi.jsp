@@ -12,8 +12,30 @@
         <title>JSP Page</title> 
         <script> 
             function feedback() {
-                alert("O requerimento foi inserido no sistema com sucesso!")
+                alert("O requerimento foi inserido no sistema!")
             }
+            
+            function validateForm() {
+                
+                var nomeOrientador = document.forms["mudancaTgi"]["nomeOrientador"].value;
+                var curso = document.forms["mudancaTgi"]["curso"].value;
+                var grupo = document.forms["mudancaTgi"]["grupo"].value;
+                var motivo = document.forms["mudancaTgi"]["motivo"].value;
+                
+                if (
+                    nomeOrientador == null || nomeOrientador == "" || 
+                    curso == null || curso == "" || 
+                    grupo == null || grupo == "" || 
+                    motivo == null || motivo == "" 
+                ) {
+                    alert("Nao e possivel inserir valores em branco, favor preencher os campos em branco.");
+                    return false;
+                
+                } else {
+                    feedback();
+                }
+            }
+            
          </script>
     </head>
     <body>
@@ -36,7 +58,7 @@
             &nbsp<%--Tag para dar espaçoes --%>
             &nbsp<%--Tag para dar espaçoes --%>
             <h1>Mudanças de Dados de TGI</h1>
-            <form action = "../../MudancaTgiServlet" method="POST" onSubmit="feedback()">
+            <form name="mudancaTgi" action = "../../MudancaTgiServlet" method="POST" onSubmit="return validateForm()">
                 <%String user = request.getParameter("user");%>
                  <table>
                     

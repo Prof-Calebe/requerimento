@@ -9,10 +9,38 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title><script>
+        <title>JSP Page</title>
+        <script>
+            
             function feedback() {
-                alert("O requerimento foi inserido no sistema com sucesso!")
+                alert("O requerimento foi inserido no sistema!");
             }
+            
+            function validateForm() {
+                
+                var nomeProfessor = document.forms["revisaoProcomp"]["nomeProfessor"].value;
+                var nomeDisciplina = document.forms["revisaoProcomp"]["nomeProfessor"].value;
+                var curso = document.forms["revisaoProcomp"]["curso"].value;
+                var turma = document.forms["revisaoProcomp"]["turma"].value;
+                var motivo = document.forms["revisaoProcomp"]["motivo"].value;
+                var data = document.forms["revisaoProcomp"]["data"].value;
+                
+                if (
+                    nomeProfessor == null || nomeProfessor == "" || 
+                    nomeDisciplina == null || nomeDisciplina == "" || 
+                    curso == null || curso == "" || 
+                    turma == null || turma == "" || 
+                    motivo == null || motivo == "" ||
+                    data == null || data == "" 
+                ) {
+                    alert("Nao e possivel inserir valores em branco, favor preencher os campos em branco.");
+                    return false;
+                
+                } else {
+                    feedback();
+                }
+            }
+            
         </script>
     </head>
     <body>
@@ -35,7 +63,7 @@
             &nbsp<%--Tag para dar espaçoes --%>
             &nbsp<%--Tag para dar espaçoes --%>
             <h1>Revisão de Nota do Procomp.</h1>
-            <form action = "../../RevisaoProcompServlet" method="POST" onsubmit="feedback()">
+            <form name="revisaoProcomp" action = "../../RevisaoProcompServlet" method="POST" onsubmit="return validateForm()">
                 <%String user = request.getParameter("user");%>
                  <table>
                     
@@ -61,7 +89,7 @@
                         </tr>
                         <tr>
                         <td>Data do procomp:</td>
-                        <td><input type="text" name="motivo" SIZE=50 MAXLENGTH=50></td>
+                        <td><input type="text" name="data" SIZE=50 MAXLENGTH=50></td>
                         </tr>
                     
                 </table>

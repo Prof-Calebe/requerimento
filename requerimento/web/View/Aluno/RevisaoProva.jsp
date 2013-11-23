@@ -11,9 +11,36 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <script>
+            
             function feedback() {
-                alert("O requerimento foi inserido no sistema com sucesso!")
+                alert("O requerimento foi inserido no sistema");
             }
+            
+            function validateForm() {
+                
+                var nomeProfessor = document.forms["revisaoProva"]["nomeProfessor"].value;
+                var nomeDisciplina = document.forms["revisaoProva"]["nomeProfessor"].value;
+                var curso = document.forms["revisaoProva"]["curso"].value;
+                var turma = document.forms["revisaoProva"]["turma"].value;
+                var motivo = document.forms["revisaoProva"]["motivo"].value;
+                var data = document.forms["revisaoProva"]["data"].value;
+                
+                if (
+                    nomeProfessor == null || nomeProfessor == "" || 
+                    nomeDisciplina == null || nomeDisciplina == "" || 
+                    curso == null || curso == "" || 
+                    turma == null || turma == "" || 
+                    motivo == null || motivo == "" ||
+                    data == null || data == "" 
+                ) {
+                    alert("Nao e possivel inserir valores em branco, favor preencher os campos em branco.");
+                    return false;
+                
+                } else {
+                    feedback();
+                }
+            }
+            
         </script>
     </head>
     <body>
@@ -36,7 +63,7 @@
             &nbsp<%--Tag para dar espaçoes --%>
             &nbsp<%--Tag para dar espaçoes --%>
             <h1>Revisão de Nota de Prova</h1>
-            <form action = "../../RevisaoProvaServlet" method="POST" onSubmit="feedback()">
+            <form name="revisaoProva" action = "../../RevisaoProvaServlet" method="POST" onSubmit="return validateForm()">
                 <%String user = request.getParameter("user");%>
                  <table>
                     
@@ -62,7 +89,7 @@
                         </tr>
                         <tr>
                         <td>Data da prova:</td>
-                        <td><input type="text" name="motivo" SIZE=50 MAXLENGTH=50></td>
+                        <td><input type="text" name="data" SIZE=50 MAXLENGTH=50></td>
                         </tr>
                     
                 </table>
