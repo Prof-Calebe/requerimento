@@ -128,6 +128,19 @@ public class RevisaoProvaTest {
     }
 
     @Test
+    public void getDataTest() {
+        revisaoProva.setData("14/04/2013");
+        String data = revisaoProva.getData();
+        Assert.assertEquals("14/04/2013", data);
+    }
+
+    @Test
+    public void setDataTest() {
+        revisaoProva.setData("14/04/2013");
+        Assert.assertEquals("14/04/2013", revisaoProva.getData());
+    }
+    
+    @Test
     public void getStatusTest() {
         revisaoProva.setStatus("Em analise");
         String status = revisaoProva.getStatus();

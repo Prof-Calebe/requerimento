@@ -115,6 +115,19 @@ public class AbonarFaltaTest {
     }
 
     @Test
+    public void getDataTest() {
+        abonoFalta.setData("14/04/2013");
+        String data = abonoFalta.getData();
+        Assert.assertEquals("14/04/2013", data);
+    }
+
+    @Test
+    public void setDataTest() {
+        abonoFalta.setData("14/04/2013");
+        Assert.assertEquals("14/04/2013", abonoFalta.getData());
+    }
+    
+    @Test
     public void getStatusTest() {
         abonoFalta.setStatus("Em analise");
         String status = abonoFalta.getStatus();
