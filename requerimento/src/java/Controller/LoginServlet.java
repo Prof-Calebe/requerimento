@@ -46,10 +46,10 @@ public class LoginServlet extends HttpServlet {
         
         
         //Teste aluno
-        num = 30000045;
+        //num = 30000045;
         
         //Teste funcionario
-        //num = 10000098;
+        num = 10000098;
         
         try {
             //if((user.equals(login.validarUsuario(user))) && (pass.equals(login.validarSenha(pass))))
