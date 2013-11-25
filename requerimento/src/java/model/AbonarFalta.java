@@ -8,6 +8,7 @@ public class AbonarFalta {
     private String curso;
     private String turma;
     private String motivo;
+    private String data;
     private String status;
     private String avaliacao;
 
@@ -59,6 +60,14 @@ public class AbonarFalta {
         this.motivo = motivo;
     }
 
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+    
     public String getStatus() {
         return status;
     }

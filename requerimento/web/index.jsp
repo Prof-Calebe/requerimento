@@ -12,7 +12,23 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login</title>
-        
+        <script>
+             function validateForm() {
+                
+                var user = document.forms["indexForm"]["user"].value;
+                var pass = document.forms["indexForm"]["pass"].value;
+                
+                
+                if (
+                    user == null || user == "" || 
+                    pass == null || pass == ""
+                ) {
+                    alert("Nao e possivel inserir valores em branco, favor preencher os campos em branco.");
+                    return false;
+                
+                }
+            }
+        </script>
     </head>
     
     
@@ -47,7 +63,7 @@
             &nbsp<%--Tag para dar espaçoes --%>
             <h1><font color="#8B0000">SISTEMA DE REQUERIMENTO</font></h1>
             
-            <form action = "LoginServlet" method="POST">
+            <form name="indexForm" action = "LoginServlet" method="POST" onSubmit="return validateForm()">
                 <table>
                     <tr>
                         <td>T.I.A/D.R.T:</td>
