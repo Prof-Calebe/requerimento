@@ -43,6 +43,18 @@
             <br>
             <br>
                 <img src="Imagem/icon.png" width="35" height="35" />
+                <a href="Horas_Estagio_Obrigatorio.jsp?user=<%=nome%>">Horas de Estagio Obrigatorio</a>
+            <br>
+            <br>
+                <img src="Imagem/icon.png" width="35" height="35" />
+                <a href="Cursos_FCI.jsp?user=<%=nome%>">Inscrever em Cursos</a>
+            <br>
+            <br>
+                <img src="Imagem/icon.png" width="35" height="35" />
+                <a href="ESCP.jsp?user=<%=nome%>">Estagio Supervisionado</a>
+            <br>            
+            <br>
+                <img src="Imagem/icon.png" width="35" height="35" />
                 <a href="Revisao_Nota_Procomp.jsp?user=<%=nome%>">Revisão da Nota do PROCOMP</a>
             <br>
             <br>
