@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 
 public class Conexao {
-    private final String URL = "jdbc:mysql://127.0.0.1:3306/login2";
+    private final String URL = "jdbc:mysql://127.0.0.1:3306/mysql";
     private final String USER = "root";
     private final String PASS = "1234";
     
