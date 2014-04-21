@@ -33,6 +33,7 @@
             <h1>Requerimentos</h1>
             <br>
             <br>
+            <tr>
             <%String nome = request.getParameter("user");%>
                 <img src="Imagem/icon.png" width="35" height="35" />
                 <a href="ProvaSubstitutiva.jsp?user=<%=nome%>">Prova Substitutiva</a>

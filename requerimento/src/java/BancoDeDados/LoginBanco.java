@@ -17,6 +17,20 @@ public class LoginBanco {
         conexao = new Conexao().getConexao();
     }  
     
+    public String buscaNome(String identificador) throws SQLException{
+        String bancoLogin;
+        bancoLogin = "SELECT nome FROM pessoa WHERE id ='" + identificador+ "';";
+        
+        Statement st = conexao.createStatement();
+        ResultSet rs = st.executeQuery(bancoLogin);
+        
+        if (rs.next())
+            return rs.getString("nome");   
+        
+        System.out.println("ERROID");
+        return null;
+        
+    } 
     public String validarUsuario(String identificador) throws SQLException{
         String bancoLogin;
         bancoLogin = "SELECT id FROM pessoa WHERE id ='" + identificador+ "';";
@@ -26,6 +40,8 @@ public class LoginBanco {
         
         if (rs.next())
             return rs.getString("id");   
+        
+        System.out.println("ERROID");
         return null;
         
     }    
@@ -38,6 +54,8 @@ public class LoginBanco {
         
         if (rs.next())
             return rs.getString("senha");   
+        
+        System.out.println("ERROSENHA");
         return null;
     }
 }

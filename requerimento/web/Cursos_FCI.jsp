@@ -12,35 +12,45 @@
         <title>Faculdade de Computação e Informática - MACKENZIE</title>
     </head>
     <body>
-        <h1>Cursos FCI</h1>
-            <form action = "CursoServlet" method="POST">
+        <center>
+            <img src="Imagem/mackenzie1.png"/>
+            <br><%--Tag para pular linha --%>
+        <h1>Cursos ExtraCurriculares</h1>
+            <form action = "cursoservlet" method="POST" >
                 <%String user = request.getParameter("user");%>
+                
                  <table>
                     <tr>
                         <td><input type="hidden" name="user" value="<%=user%>"></td>     
                         <tr>
-                        <td>Nome da Professor:</td>
-                        <td><input type="text" name="nomeProfessor" SIZE=50 MAXLENGTH=50></td>
+                        <td>Nome:</td>
+                        <td><input type="text" name="nome" SIZE=50 MAXLENGTH=50></td>
                         </tr>
                         <tr>
-                        <td>Nome da Disciplina:</td>
-                        <td><input type="text" name="nomeDisciplina" SIZE=50 MAXLENGTH=50></td>
+                        <td>TIA:</td>
+                        <td><input type="text" name="tia" value="<%=user%>"></td>
                         </tr>
                         <tr>
                         <td>Curso:</td>
-                        <td><input type="text" name="curso" SIZE=50 MAXLENGTH=50></td>
+                        <td><input type="radio" name="curso" VALUE="cc">Ciência da Computação
+                        <br><input type="radio" name="curso" VALUE="si">Sistemas da Informação
+                        <br><input type="radio" name="curso" VALUE="mat">Matemática</td>
                         </tr>
                         <tr>
-                        <td>Turma:</td>
-                        <td><input type="text" name="turma" SIZE=50 MAXLENGTH=50></td></tr>
-                        <tr>
-                        <td>Motivo do Requerimento:</td>
-                        <td><input type="text" name="motivo" SIZE=50 MAXLENGTH=50></td>
-                    </tr>
-                    
-                </table>
-                <br>
-                <br>
-                </form>        
+                        <td>Curso Extracurricular:</td>
+                        <td><input type="radio" name="extra" VALUE="sql">Linguagem SQL
+                        <br><input type="radio" name="extra" VALUE="curso">Desenvolvimento IOS
+                        <br><input type="radio" name="extra" VALUE="palestra">Desenvolvimento Android</td>
+                        </tr>
+                 </table>
+                <input type="submit" value="Enviar" />
+                </form>
+                
+        </center>
+        <center> 
+           <form action ="requerimento.jsp" method="POST">
+                  <input type="submit" value="Cancelar"/>
+           </form>
+        </center> 
     </body>
 </html>
