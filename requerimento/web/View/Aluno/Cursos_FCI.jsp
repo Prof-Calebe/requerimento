@@ -31,12 +31,13 @@
             &nbsp<%--Tag para dar espaçoes --%>
             &nbsp<%--Tag para dar espaçoes --%>
         <h1>Cursos ExtraCurriculares</h1>
-            <form action = "cursoservlet" method="POST" >
+            <form action = "../../cursoservlet" method="POST" >
                 <%String user = request.getParameter("user");%>
                 
                  <table>
                     <tr>
-                        <td><input type="hidden" name="user" value="<%=user%>"></td>     
+                        <td><input type="hidden" name="user" value="<%=user%>"></td>   
+                        <td><input type="hidden" name="status" value="pendente"></td> 
                         <tr>
                         <td>Nome:</td>
                         <td><input type="text" name="nome" SIZE=50 MAXLENGTH=50></td>

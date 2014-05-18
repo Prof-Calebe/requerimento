@@ -56,6 +56,10 @@
                 <a href="AvaliarRevisaoTgi.jsp">Avaliar Mudanças de Dados de TGI</a>
            <br>
            <br>
+                <img src="../../../Imagem/icon.png" width="35" height="35" />
+                <a href="AvaliarInscricoesFCI.jsp">Avaliar Inscrições de Cursos FCI</a>
+           <br>
+           <br>
                 <a href="../../../funcionarioMenu.jsp">Voltar</a>
         </center>    
     </body>
