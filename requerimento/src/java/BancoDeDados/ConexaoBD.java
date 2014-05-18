@@ -9,10 +9,10 @@ import java.sql.SQLException;
 
 
 public class ConexaoBD {
-    private final String URL = "jdbc:mysql://127.0.0.1:3306/login2";
+    private final String URL = "jdbc:mysql://127.0.0.1:3306/test";
     private final String USER = "root";
-    private final String PASS = "sbk1986";
-    
+    //private final String PASS = "1234";
+    private final String PASS = "fh3085628";
     public Connection getConexao() throws ClassNotFoundException {
         //System.out.println("Conectando com o banco de dados...");
         try {

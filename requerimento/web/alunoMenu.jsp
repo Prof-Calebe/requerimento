@@ -51,6 +51,10 @@
             <br>
             <br>
                 <img src="Imagem/icon.png" width="35" height="35" />
+                <a href="View/Aluno/Cursos_FCI.jsp?user=<%=nome%>">Inscrever Cursos FCI</a>
+            <br>
+            <br>
+                <img src="Imagem/icon.png" width="35" height="35" />
                 <a href="View/Aluno/MudancaTgi.jsp?user=<%=nome%>">Mudanças de Dados de TGI</a>
             <br>
             <br>

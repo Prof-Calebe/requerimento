@@ -14,7 +14,7 @@ public class LoginBD {
      
     private Connection conexao;
     public LoginBD() throws ClassNotFoundException{
-        //conexao = new Conexao().getConexao();
+        conexao = new ConexaoBD().getConexao();
     }  
     
     public String validarUsuario(String identificador) throws SQLException{
