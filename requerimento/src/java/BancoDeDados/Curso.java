@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import static jdk.nashorn.internal.objects.NativeRegExp.test;
 import model.*;
 
 
@@ -111,6 +112,28 @@ public class Curso {
             throw new RuntimeException(e);
         
         }
+    }
+    
+    boolean podeinserir(String string, String sql) throws SQLException {
+        PreparedStatement stmt = (PreparedStatement) conexao.prepareStatement("SELECT * FROM curso where tia <> ? and extra <> ?;");
+        stmt.setString(1, string);
+        stmt.setString(2, sql);
+        System.out.println(stmt);
+        ResultSet rs = stmt.executeQuery();
+        System.out.println("Resultado =" + rs);
+        int i = 0;
+        while(rs.next()){
+            i++;
+        }
+        if (i == 0){
+            System.out.println("TRUE");
+            return true;
+        }
+        else{
+            System.out.println("FALSE");
+            return false;  
+        }
+    
     }
 
 
