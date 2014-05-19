@@ -62,9 +62,16 @@ public class TestaCursoFCI {
             aux.insere("FELIPE", "9999999", "CC", "IOS");
         assertEquals(resposta1,resposta2); 
 }
-    
-    public void AvaliarUmCurso(){
-        
+    @Test
+    public void AvaliarUmRequerimentoCurso() throws ClassNotFoundException, SQLException{
+        Curso aux = new Curso();
+        boolean resposta1 = aux.podeinserir("22222222", "sql");
+        if(resposta1==true)
+            aux.insere("FELIPE", "22222222", "CC", "sql");
+        aux.atualiza("22222222", "sql", "aprovado", "aluno apto");
+        boolean resposta;
+        resposta = aux.validouRequerimento("22222222", "sql");
+        assertTrue(resposta);        
     }
 
     // TODO add test methods here.

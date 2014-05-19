@@ -114,7 +114,7 @@ public class Curso {
         }
     }
     
-    boolean podeinserir(String string, String sql) throws SQLException {
+    public boolean podeinserir(String string, String sql) throws SQLException {
         PreparedStatement stmt = (PreparedStatement) conexao.prepareStatement("SELECT * FROM curso where tia <> ? and extra <> ?;");
         stmt.setString(1, string);
         stmt.setString(2, sql);
@@ -134,6 +134,24 @@ public class Curso {
             return false;  
         }
     
+    }
+
+    public boolean validouRequerimento(String string, String sql) throws SQLException {
+        PreparedStatement stmt = (PreparedStatement) conexao.prepareStatement("SELECT status FROM curso where tia = ? and extra = ?;");
+        stmt.setString(1, string);
+        stmt.setString(2, sql);
+        System.out.println(stmt);
+        ResultSet rs = stmt.executeQuery();
+        String resposta = null;
+        int i = 0;
+        if(rs.next()){
+            resposta = rs.getString("status");
+        }
+        System.out.println("Resposta = " +resposta);
+        if(resposta == "aprovado" || resposta =="reprovado"){
+            return true;
+        }
+        return false;
     }
 
 
