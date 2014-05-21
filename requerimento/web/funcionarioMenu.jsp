@@ -43,6 +43,9 @@
             <br>
                 <img src="Imagem/icon.png" width="35" height="35" />
                 <a href="View/Funcionario/Avaliar/AvaliarRequerimento.jsp"> Avaliar Requerimento</a>
+            <br>
+                <img src="Imagem/icon.png" width="35" height="35" />
+                <a href="../../../funcionarioMenu.jsp">Voltar</a>  
             </center>
     </body>
 </html>

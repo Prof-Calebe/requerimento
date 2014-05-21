@@ -23,7 +23,7 @@
                     tia == null || tia == "" || 
                     nome == null || nome == "" || 
                     curso == null || curso == "" || 
-                    senha == null || senha == "" || 
+                    senha == null || senha == ""
                 ) {
                     alert("Nao e possivel inserir valores em branco, favor preencher os campos em branco.");
                     return false;

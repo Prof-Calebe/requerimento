@@ -12,7 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import static jdk.nashorn.internal.objects.NativeRegExp.test;
 import model.*;
 
 
@@ -24,6 +23,7 @@ public class Curso {
     public static int i = 0;
     private Connection conexao;
     private List<CursoExtra> cursoExtra;
+    private Object String;
     public Curso() throws ClassNotFoundException{
         System.out.println("AAAAAAAAAAAAAAA");
         conexao = new ConexaoBD().getConexao();
@@ -34,20 +34,21 @@ public class Curso {
    
  
    public void insere(String nome, String TIA, String curso, String extra) {
-        String sql = "INSERT INTO curso(codigo,nome, TIA, curso, extra, status, parecer) VALUES (?,?, ?, ?, ?,?,?)";
         i++;
-        String aux = String.valueOf(i);
+        String sql = "INSERT INTO curso(codigo,nome, TIA, curso, extra, status, parecer) VALUES (" + i + ",?, ?, ?, ?,?,?)";
+        //i++;
+        //String aux = (String).valueOf(i);
         try {
             // prepared statement para inserção
             PreparedStatement stmt = (PreparedStatement) conexao.prepareStatement(sql);    
             // seta os valores
-            stmt.setString(1, aux);          //codigo
-            stmt.setString(2, nome);         //nome
-            stmt.setString(3, TIA);          //id
-            stmt.setString(4,  curso);       //curso
-            stmt.setString(5, extra);        //extracurricular
-            stmt.setString(6, "Pendente");   //status
-            stmt.setString(7, "A Verificar");//parecer
+            //stmt.setString(1, i++);          //codigo
+            stmt.setString(1, nome);         //nome
+            stmt.setString(2, TIA);          //id
+            stmt.setString(3,  curso);       //curso
+            stmt.setString(4, extra);        //extracurricular
+            stmt.setString(5, "Pendente");   //status
+            stmt.setString(6, "A Verificar");//parecer
             // executa
             stmt.executeUpdate();
             stmt.close();
@@ -148,11 +149,37 @@ public class Curso {
             resposta = rs.getString("status");
         }
         System.out.println("Resposta = " +resposta);
-        if(resposta == "aprovado" || resposta =="reprovado"){
+        if(resposta.equals("aprovado") || resposta.equals("reprovado")){
             return true;
         }
         return false;
     }
 
+    boolean dadosConsistentes(String felipe, String string, String cc, String sql) {
+        if((felipe.equals("")) || (string.equals("")) || (cc.equals("")) || (sql.equals("")))
+             return false;
+        return true;   
+    }
 
+    boolean requerimentoInserido(String string, String sql) throws SQLException {
+        PreparedStatement stmt = (PreparedStatement) conexao.prepareStatement("SELECT status FROM curso where tia = ? and extra = ?;");
+        stmt.setString(1, string);
+        stmt.setString(2, sql);
+        System.out.println(stmt);
+        ResultSet rs = stmt.executeQuery();
+        String resposta = null;
+        int i = 0;
+        while(rs.next()){
+            i++;
+        }
+        System.out.println(i);
+        if (i >= 1){
+            System.out.println("TRUE");
+            return true;
+        }
+        else{
+            System.out.println("FALSE");
+            return false;  
+        }
+    }
 }

@@ -1,4 +1,6 @@
 
+<%@page import="BancoDeDados.Curso"%>
+<%@page import="model.CursoExtra"%>
 <%@page import="BancoDeDados.AbonarFaltaBD"%>
 <%@page import="model.AbonarFalta"%>
 <%@page import="BancoDeDados.RevisaoProvaBD"%>
@@ -59,9 +61,63 @@
                //RevisaoTgiBD revisaoprova1 = new RevisaoTgiBD();
                List<RevisaoTGI> listaRevisoes1  = new ArrayList<RevisaoTGI>(); 
                //listaRevisoes1 = revisaoprova1.getLista();
+               Curso aux = new Curso();
+               List<CursoExtra> listaCursos  = new ArrayList<CursoExtra>();
+               listaCursos = aux.getLista();
+               
             %>
             
             <table border ="1">
+            <br>
+            <tr> 
+            
+                Requerimentos de Cursos de FCI
+                <td>
+                    TIA
+                </td>
+                <td>
+                    Nome
+                </td>
+                <td>
+                    Curso
+                </td>
+                <td>
+                    Extra
+                </td>
+                <td>
+                    Status
+                </td>
+                <td>
+                    Parecer
+                </td> 
+            </tr>
+            <%String user = request.getParameter("user");%>
+            <% for(int i = 0; i< listaCursos.size() && listaCursos.get(i).getTia().equals(user);i++){%>
+            <tr> 
+                <td>                 
+                    <%{ out.println(listaCursos.get(i).getTia());}; %>
+                </td>
+                <td>
+                    <% out.println(listaCursos.get(i).getNome()); %>
+                </td>
+                <td>
+                    <% out.println(listaCursos.get(i).getCurso()); %>
+                </td>
+                <td>
+                    <% out.println(listaCursos.get(i).getExtra()); %>
+                </td>
+                <td>
+                    <% out.println(listaCursos.get(i).getStatus()); %>
+                </td>
+                <td>
+                    <% out.println(listaCursos.get(i).getParecer()); %>
+                </td>
+            
+            </tr>
+            <%}%>
+            <br>
+        </table>
+        <table border ="1">
             <br>
             <tr> 
             

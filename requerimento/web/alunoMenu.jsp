@@ -60,7 +60,9 @@
             <br>
                 <img src="Imagem/icon.png" width="35" height="35" />
                 <a href="View/Aluno/VerificarRequerimento.jsp?user=<%=nome%>">Verificar Requerimento</a>
-                
+            <br>
+                <img src="Imagem/icon.png" width="35" height="35" />
+                <a href="index.jsp">Voltar</a>                  
         </center>
     </body>
 </html>
